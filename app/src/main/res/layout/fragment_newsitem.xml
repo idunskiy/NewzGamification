@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <ImageView
+        android:id="@+id/news_image"
+        android:layout_width="fill_parent"
+        android:layout_height="120dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true" android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+    <TextView
+        android:id="@+id/news_date"
+        android:layout_width="110dp"
+        android:layout_height="14sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:textSize="14sp"
+        android:textAllCaps="true"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:text="sdadasdasdasd"
+        android:textStyle="bold"
+        android:layout_marginRight="15dp"
+
+        />
+    <TextView
+        android:id="@+id/news_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:background="@drawable/object_name_list_background"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:textStyle="bold"
+        android:paddingBottom="5dp"
+        android:textColor="#FFFFFF"
+        android:text="wqeeqw"
+        android:layout_alignBottom="@+id/object_image"
+        android:layout_alignParentLeft="true" android:layout_alignParentStart="true"/>
+
+</RelativeLayout>

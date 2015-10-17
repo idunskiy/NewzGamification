@@ -40,15 +40,14 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-
+    Toolbar mToolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //Helli
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowHomeEnabled(false);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -57,14 +56,14 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
 
     }
 
@@ -130,10 +129,13 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
+                    MainActivity.this.setToolbarTitle(getString(R.string.title_favorite_news));
                     return "SECTION 1";
                 case 1:
+                    MainActivity.this.setToolbarTitle(getString(R.string.title_all_news));
                     return "SECTION 2";
                 case 2:
+                    MainActivity.this.setToolbarTitle(getString(R.string.title_profile));
                     return "SECTION 3";
             }
             return null;
@@ -173,5 +175,9 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
             textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             return rootView;
         }
+    }
+    public void setToolbarTitle(String title)
+    {
+        getSupportActionBar().setTitle(title);
     }
 }

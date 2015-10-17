@@ -1,10 +1,25 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="mobapply.newzgamification.fragments.ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <EditText
+        android:id="@+id/profile_email"
+        style="@style/NewSterRegularMargins"
+        android:hint="@string/hint_login"
+        />
 
-</FrameLayout>
+    <EditText
+        android:id="@+id/profile_password"
+        android:hint="@string/hint_password"
+        style="@style/NewSterRegularMargins"/>
+
+    <TextView
+        android:id="@+id/profile_score"
+        android:hint="@string/hint_password"
+        android:text="@string/text_score"
+        android:textStyle="bold"
+        style="@style/NewSterRegularMargins"/>
+
+</LinearLayout>
