@@ -11,6 +11,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:src="@drawable/ic_unian_logo"/>
 
 
@@ -22,18 +23,31 @@
     <EditText
         android:id="@+id/login_email"
         style="@style/NewSterRegularMargins"
+        android:visibility="gone"
         android:hint="@string/hint_login"
         />
 
     <EditText
         android:id="@+id/login_password"
         android:hint="@string/hint_password"
+        android:visibility="gone"
         style="@style/NewSterRegularMargins"/>
 
     <Button
         android:id="@+id/btn_login"
         android:text="@string/btn_login"
+        android:visibility="gone"
         android:background="@drawable/button_login"
         style="@style/NewSterRegularMargins" />
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/facebook_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:foregroundGravity="center"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp" />
 
 </LinearLayout>
