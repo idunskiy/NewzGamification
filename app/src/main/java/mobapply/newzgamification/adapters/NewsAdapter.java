@@ -37,9 +37,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         this.records = records;
     }
 
-    /**
-     * Создание новых View и ViewHolder элемента списка, которые впоследствии могут переиспользоваться.
-     */
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.fragment_newsitem, viewGroup, false);
