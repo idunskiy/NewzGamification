@@ -24,17 +24,8 @@ import mobapply.newzgamification.model.NewsItem;
  */
 public class NewsListAdapter extends ArrayAdapter<NewsItem> {
 
-    private  Context context;
-    private  ImageView news_image;
-    private  TextView news_title;
-    private  TextView news_date;
-    private List<NewsItem> records;
-
-
     public NewsListAdapter(Context context, int resource, int textViewResourceId, List<NewsItem> newsItemList) {
-        super(context, resource, textViewResourceId);
-        this.context = context;
-        this.records =newsItemList;
+        super(context, resource, newsItemList);
     }
 
     /**
@@ -47,13 +38,13 @@ public class NewsListAdapter extends ArrayAdapter<NewsItem> {
 
         if (v == null) {
             LayoutInflater vi =
-                    (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                    (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             v = vi.inflate(R.layout.fragment_newsitem, null);
             // cache view fields into the holder
             holder = new ViewHolder();
-            news_date = (TextView) v.findViewById(R.id.news_date);
-            news_title = (TextView) v.findViewById(R.id.news_title);
-            news_image = (ImageView) v.findViewById(R.id.news_image);
+            holder.news_date = (TextView) v.findViewById(R.id.news_date);
+            holder.news_title = (TextView) v.findViewById(R.id.news_title);
+            holder.news_image = (ImageView) v.findViewById(R.id.news_image);
             // associate the holder with the view for later lookup
             v.setTag(holder);
         }
@@ -61,11 +52,11 @@ public class NewsListAdapter extends ArrayAdapter<NewsItem> {
             // view already exists, get the holder instance from the view
             holder = (ViewHolder) v.getTag();
         }
-        NewsItem newsItem = records.get(position);
+        NewsItem newsItem = getItem(position);
         DateFormat df = new SimpleDateFormat("MM.dd.yyyy HH:mm");
-        holder.news_date.setText(df.format(df));
+        holder.news_date.setText(df.format(newsItem.getDate().getTime()));
         holder.news_title.setText(newsItem.getSummary());
-        Glide.with(context).load(newsItem.getImage()).into(holder.news_image);
+        Glide.with(getContext()).load(newsItem.getImage()).into(holder.news_image);
         return v;
     }
 
