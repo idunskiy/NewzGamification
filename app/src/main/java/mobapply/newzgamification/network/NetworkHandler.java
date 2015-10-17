@@ -107,9 +107,8 @@ public final class NetworkHandler {
 		parser.nextTag();
 		Log.d(TAG, "readEntry name=" + parser.getName() + " event=" + parser.getEventType());
 		// <link>http://www.unian.ua/war/1155177-zavtra-v-donetskiy ... .html</link>
-		parser.nextText();
 		Log.d(TAG, "readEntry name=" + parser.getName() + " event=" + parser.getEventType());
-		builder.setTextFull(parser.getText());
+		builder.setTextFull(parser.nextText());
 		parser.nextTag();
 		Log.d(TAG, "readEntry name=" + parser.getName() + " event=" + parser.getEventType());
 		// <category>Війна</category>
