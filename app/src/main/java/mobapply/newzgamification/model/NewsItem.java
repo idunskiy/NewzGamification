@@ -9,7 +9,7 @@ import java.util.Date;
 public class NewsItem {
     Date date;
     String summary;
-    String textFull;
+    String url;
     String image;
 
     public String getImage() {
@@ -36,18 +36,18 @@ public class NewsItem {
         this.summary = summary;
     }
 
-    public String getTextFull() {
-        return textFull;
+    public String getUrl() {
+        return url;
     }
 
-    public void setTextFull(String textFull) {
-        this.textFull = textFull;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
-    public NewsItem(Date date, String summary, String textFull, String image) {
+    public NewsItem(Date date, String summary, String url, String image) {
         this.date = date;
         this.summary = summary;
-        this.textFull = textFull;
+        this.url = url;
         this.image = image;
     }
 
@@ -56,7 +56,7 @@ public class NewsItem {
         return "NewsItem{" +
                 "date=" + date +
                 ", summary='" + summary + '\'' +
-                ", textFull='" + textFull + '\'' +
+                ", url='" + url + '\'' +
                 ", image='" + image + '\'' +
                 '}';
     }
