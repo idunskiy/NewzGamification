@@ -31,9 +31,10 @@ public class NewsListAdapter extends ArrayAdapter<NewsItem> {
     private List<NewsItem> records;
 
 
-    public NewsListAdapter(Context context, int resource, int textViewResourceId, Context context1) {
+    public NewsListAdapter(Context context, int resource, int textViewResourceId, List<NewsItem> newsItemList) {
         super(context, resource, textViewResourceId);
-        context = context1;
+        this.context = context;
+        this.records =newsItemList;
     }
 
     /**
@@ -60,13 +61,11 @@ public class NewsListAdapter extends ArrayAdapter<NewsItem> {
             // view already exists, get the holder instance from the view
             holder = (ViewHolder) v.getTag();
         }
-
         NewsItem newsItem = records.get(position);
         DateFormat df = new SimpleDateFormat("MM.dd.yyyy HH:mm");
         holder.news_date.setText(df.format(df));
         holder.news_title.setText(newsItem.getSummary());
         Glide.with(context).load(newsItem.getImage()).into(holder.news_image);
-
         return v;
     }
 

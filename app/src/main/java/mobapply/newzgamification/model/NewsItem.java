@@ -50,4 +50,14 @@ public class NewsItem {
         this.textFull = textFull;
         this.image = image;
     }
+
+    @Override
+    public String toString() {
+        return "NewsItem{" +
+                "date=" + date +
+                ", summary='" + summary + '\'' +
+                ", textFull='" + textFull + '\'' +
+                ", image='" + image + '\'' +
+                '}';
+    }
 }

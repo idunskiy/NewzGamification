@@ -36,7 +36,6 @@
     <Button
         android:id="@+id/btn_login"
         android:text="@string/btn_login"
-        android:visibility="gone"
         android:background="@drawable/button_login"
         style="@style/NewSterRegularMargins" />
 

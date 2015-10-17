@@ -3,6 +3,7 @@ package mobapply.newzgamification.fragments;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +13,16 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
+import com.android.volley.Response;
+
+import java.util.List;
+
 import mobapply.newzgamification.R;
+import mobapply.newzgamification.adapters.NewsListAdapter;
 import mobapply.newzgamification.fragments.dummy.DummyContent;
 import mobapply.newzgamification.library.OnFragmentInteractionListener;
+import mobapply.newzgamification.model.NewsItem;
+import mobapply.newzgamification.network.NetworkHandler;
 
 /**
  * A fragment representing a list of Items.
@@ -46,6 +54,7 @@ public class FavoriteArticlesFragment extends Fragment implements AbsListView.On
      * Views.
      */
     private ListAdapter mAdapter;
+    private String TAG  =  "FavoriteArticlesFragment";
 
     // TODO: Rename and change types of parameters
     public static FavoriteArticlesFragment newInstance() {
@@ -74,14 +83,23 @@ public class FavoriteArticlesFragment extends Fragment implements AbsListView.On
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_newsitem, container, false);
+        View view = inflater.inflate(R.layout.fragment_allnews_list, container, false);
 
         // Set the adapter
         mListView = (AbsListView) view.findViewById(android.R.id.list);
-        ((AdapterView<ListAdapter>) mListView).setAdapter(mAdapter);
+        NetworkHandler.getNewsList(new Response.Listener<List<NewsItem>>() {
+            @Override
+            public void onResponse(List<NewsItem> response) {
+                if (response != null && !response.isEmpty()) {
+                    NewsListAdapter adapter = new NewsListAdapter(getActivity(), R.layout.fragment_newsitem, R.id.news_title, response);
+                    Log.i(TAG + " tag", adapter.toString());
+                    ((AdapterView<ListAdapter>) mListView).setAdapter(adapter);
+                }
+            }
+        }, getActivity());
 
         // Set OnItemClickListener so we can be notified on item clicks
-        mListView.setOnItemClickListener(this);
+//        mListView.setOnItemClickListener(this);
 
         return view;
     }
