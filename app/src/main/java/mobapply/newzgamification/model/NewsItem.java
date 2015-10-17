@@ -43,4 +43,11 @@ public class NewsItem {
     public void setTextFull(String textFull) {
         this.textFull = textFull;
     }
+
+    public NewsItem(Date date, String summary, String textFull, String image) {
+        this.date = date;
+        this.summary = summary;
+        this.textFull = textFull;
+        this.image = image;
+    }
 }
