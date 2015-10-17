@@ -92,14 +92,12 @@ public class FavoriteArticlesFragment extends Fragment implements AbsListView.On
             public void onResponse(List<NewsItem> response) {
                 if (response != null && !response.isEmpty()) {
                     NewsListAdapter adapter = new NewsListAdapter(getActivity(), R.layout.fragment_newsitem, R.id.news_title, response);
-                    Log.i(TAG + " tag", adapter.toString());
-                    ((AdapterView<ListAdapter>) mListView).setAdapter(adapter);
+                    mListView.setAdapter(adapter);
                 }
             }
         }, getActivity());
 
-        // Set OnItemClickListener so we can be notified on item clicks
-//        mListView.setOnItemClickListener(this);
+        mListView.setOnItemClickListener(this);
 
         return view;
     }
@@ -126,7 +124,6 @@ public class FavoriteArticlesFragment extends Fragment implements AbsListView.On
         if (null != mListener) {
             // Notify the active callbacks interface (the activity, if the
             // fragment is attached to one) that an item has been selected.
-            mListener.onFragmentInteraction(DummyContent.ITEMS.get(position).id);
         }
     }
 

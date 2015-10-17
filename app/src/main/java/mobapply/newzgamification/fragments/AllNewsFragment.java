@@ -93,8 +93,6 @@ public class AllNewsFragment extends Fragment implements AbsListView.OnItemClick
                 Log.i(TAG + " tag", response.toString());
                 if (response != null && !response.isEmpty()) {
                     NewsListAdapter adapter = new NewsListAdapter(getActivity(), R.layout.fragment_newsitem, R.id.news_title, response);
-                    Log.i(TAG + " tag", adapter.toString());
-                    Log.i(TAG + " tag",Integer.toString(adapter.getCount()));
                     mListView.setAdapter(adapter);
                 }
             }

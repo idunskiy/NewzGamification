@@ -1,7 +1,9 @@
 package mobapply.newzgamification.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +25,12 @@ import mobapply.newzgamification.model.NewsItem;
  * Copyright (c) 2015 ${MobApply}. All rights reserved.
  */
 public class NewsListAdapter extends ArrayAdapter<NewsItem> {
+
+    private  Context context;
+    private  ImageView news_image;
+    private  TextView news_title;
+    private  TextView news_date;
+    private List<NewsItem> records;
 
     public NewsListAdapter(Context context, int resource, int textViewResourceId, List<NewsItem> newsItemList) {
         super(context, resource, newsItemList);

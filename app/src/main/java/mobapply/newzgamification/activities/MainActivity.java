@@ -60,15 +60,6 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(mViewPager);
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-
     }
 
 
@@ -133,14 +124,11 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    MainActivity.this.setToolbarTitle(getString(R.string.title_favorite_news));
-                    return "SECTION 1";
+                    return getString(R.string.title_favorite_news);
                 case 1:
-                    MainActivity.this.setToolbarTitle(getString(R.string.title_all_news));
-                    return "SECTION 2";
+                    return getString(R.string.title_all_news);
                 case 2:
-                    MainActivity.this.setToolbarTitle(getString(R.string.title_profile));
-                    return "SECTION 3";
+                    return getString(R.string.title_profile);
             }
             return null;
         }
