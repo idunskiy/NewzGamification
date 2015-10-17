@@ -19,8 +19,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import mobapply.newzgamification.R;
+import mobapply.newzgamification.fragments.AllNewsFragment;
+import mobapply.newzgamification.fragments.FavoriteArticlesFragment;
+import mobapply.newzgamification.fragments.ProfileFragment;
+import mobapply.newzgamification.library.OnFragmentInteractionListener;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnFragmentInteractionListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -87,6 +91,11 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onFragmentInteraction(String id) {
+
+    }
+
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -97,12 +106,18 @@ public class MainActivity extends AppCompatActivity {
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
-
         @Override
         public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            switch (position) {
+                case 0:
+                    return FavoriteArticlesFragment.newInstance();
+                case 1:
+                    return AllNewsFragment.newInstance();
+                case 2:
+                    return ProfileFragment.newInstance();
+                default:
+                    return FavoriteArticlesFragment.newInstance();
+            }
         }
 
         @Override
