@@ -27,7 +27,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginRight="15dp"
         android:gravity="center"
-        android:text="sdadasdasdasd"
+        tools:text="sdadasdasdasd"
         android:textAllCaps="true"
         android:textColor="#fff"
         android:textSize="14sp"
@@ -51,13 +51,13 @@
         android:textStyle="bold"/>
 
     <ImageButton
-        android:id="@+id/commnentButton"
+        android:id="@+id/shareButton"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:src="@drawable/ic_mode_comment_white_24dp"
+        android:src="@drawable/ic_share_white_24dp"
         />
 
     <ImageButton
@@ -66,8 +66,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/commnentButton"
-        android:src="@drawable/ic_thumb_up_white_24dp"
+        android:layout_toRightOf="@+id/shareButton"
+        android:src="@drawable/thumb_up"
         />
 
     <ImageButton
@@ -77,6 +77,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@id/thumbUpButton"
-        android:src="@drawable/ic_thumb_down_white_24dp"
+        android:src="@drawable/thumb_down"
         />
 </RelativeLayout>
