@@ -84,7 +84,6 @@ public class AllNewsFragment extends Fragment implements AbsListView.OnItemClick
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_allnews_list, container, false);
-        view.setBackgroundColor(0xFFFF0000);
         // Set the adapter
         mListView = (AbsListView) view.findViewById(android.R.id.list);
         NetworkHandler.getNewsList(new Response.Listener<List<NewsItem>>() {

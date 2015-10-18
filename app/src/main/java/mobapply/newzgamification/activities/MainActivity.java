@@ -59,7 +59,9 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(mViewPager);
-
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_home_white_24dp);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_list_white_24dp);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_person_white_24dp);
     }
 
 

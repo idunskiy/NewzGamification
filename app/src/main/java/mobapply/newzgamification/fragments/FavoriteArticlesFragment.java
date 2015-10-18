@@ -1,6 +1,8 @@
 package mobapply.newzgamification.fragments;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -15,6 +17,8 @@ import android.widget.TextView;
 
 import com.android.volley.Response;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import mobapply.newzgamification.R;
@@ -91,13 +95,21 @@ public class FavoriteArticlesFragment extends Fragment implements AbsListView.On
             @Override
             public void onResponse(List<NewsItem> response) {
                 if (response != null && !response.isEmpty()) {
+                    // TODO write normal logic
+                    Collections.shuffle(response);
                     NewsListAdapter adapter = new NewsListAdapter(getActivity(), R.layout.fragment_newsitem, R.id.news_title, response);
                     mListView.setAdapter(adapter);
                 }
             }
         }, getActivity());
 
-        mListView.setOnItemClickListener(this);
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d(TAG, "lalal onItemClick() called with: " + "parent = [" + parent
+                        + "], view = [" + view + "], position = [" + position + "], id = [" + id + "]");
+            }
+        });
 
         return view;
     }
@@ -121,10 +133,12 @@ public class FavoriteArticlesFragment extends Fragment implements AbsListView.On
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        if (null != mListener) {
-            // Notify the active callbacks interface (the activity, if the
-            // fragment is attached to one) that an item has been selected.
-        }
+        Log.d(TAG, "onItemClick() called with: " + "parent = [" + parent
+                + "], view = [" + view + "], position = [" + position + "], id = [" + id + "]");
+        String url = ((NewsItem) mListView.getAdapter().getItem(position)).getUrl();
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
     }
 
     /**
