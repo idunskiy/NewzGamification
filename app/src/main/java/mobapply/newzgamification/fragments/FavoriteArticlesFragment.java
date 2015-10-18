@@ -103,13 +103,7 @@ public class FavoriteArticlesFragment extends Fragment implements AbsListView.On
             }
         }, getActivity());
 
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d(TAG, "lalal onItemClick() called with: " + "parent = [" + parent
-                        + "], view = [" + view + "], position = [" + position + "], id = [" + id + "]");
-            }
-        });
+        mListView.setOnItemClickListener(this);
 
         return view;
     }
