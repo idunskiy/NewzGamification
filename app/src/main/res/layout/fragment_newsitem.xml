@@ -17,23 +17,9 @@
         android:layout_centerVertical="true"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        tools:backgound="#FF00"/>
+        tools:backgound="#ffffff"/>
 
-    <TextView
-        android:id="@+id/news_date"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginRight="15dp"
-        android:gravity="center"
-        tools:text="sdadasdasdasd"
-        android:textAllCaps="true"
-        android:textColor="#fff"
-        android:textSize="14sp"
-        android:textStyle="bold"
 
-        />
 
     <TextView
         android:id="@+id/news_title"
@@ -50,6 +36,10 @@
         android:textSize="14sp"
         android:textStyle="bold"/>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/object_name_list_background_clockwise">
     <ImageButton
         android:id="@+id/shareButton"
         style="?android:attr/borderlessButtonStyle"
@@ -79,4 +69,20 @@
         android:layout_toRightOf="@id/thumbUpButton"
         android:src="@drawable/thumb_down"
         />
+        <TextView
+            android:id="@+id/news_date"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            tools:text="sdadasdasdasd"
+            android:textAllCaps="true"
+            android:textColor="#fff"
+            android:textSize="14sp"
+            android:textStyle="bold"
+
+            />
+    </RelativeLayout>
 </RelativeLayout>

@@ -78,14 +78,14 @@ public class ProfileFragment extends Fragment {
         scoreTextView = (TextView) view.findViewById(R.id.profile_score);
         updateScore();
         callbackManager = CallbackManager.Factory.create();
-        mProfileTracker = new ProfileTracker() {
-            @Override
-            protected void onCurrentProfileChanged(Profile oldProfile, Profile newProfile) {
-                profile_email.setText(newProfile.getFirstName());
-                profile_password.setText(newProfile.getLastName());
-                Glide.with(getActivity()).load(newProfile.getProfilePictureUri(100,100)).into(image_facebook);
-            }
-        };
+//        mProfileTracker = new ProfileTracker() {
+//            @Override
+//            protected void onCurrentProfileChanged(Profile oldProfile, Profile newProfile) {
+//                profile_email.setText(newProfile.getFirstName());
+//                profile_password.setText(newProfile.getLastName());
+//                Glide.with(getActivity()).load(newProfile.getProfilePictureUri(100,100)).into(image_facebook);
+//            }
+//        };
 
         accessTokenTracker = new AccessTokenTracker() {
             @Override
@@ -128,25 +128,6 @@ public class ProfileFragment extends Fragment {
         mListener = null;
     }
 
-    public Bitmap getFacebookProfilePicture(String userID){
-        URL imageURL = null;
-        try {
-             imageURL = new URL("https://graph.facebook.com/" + userID + "/picture?type=large");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        Response.Listener<String> responseListener = new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Log.d(TAG, "onResponse() called with " + "response = [" + response + "]");
-
-            }
-        };
-        StringRequest request = new StringRequest(imageURL.toString(), responseListener ,null);
-        VolleySingleton.getInstance(getActivity()).addToRequestQueue(request);
-//        Bitmap bitmap = BitmapFactory.decodeStream(imageUrl.openConnection().getInputStream());
-        return null;
-    }
 
     private void setProfile(Profile profile) {
         profile_email.setText(profile.getFirstName());
