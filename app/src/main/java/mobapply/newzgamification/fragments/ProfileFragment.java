@@ -29,6 +29,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import mobapply.newzgamification.R;
+import mobapply.newzgamification.activities.MainActivity;
 import mobapply.newzgamification.library.OnFragmentInteractionListener;
 import mobapply.newzgamification.network.VolleySingleton;
 public class ProfileFragment extends Fragment {
@@ -41,7 +42,7 @@ public class ProfileFragment extends Fragment {
     private TextView profile_password;
     private CallbackManager callbackManager;
     private AccessTokenTracker accessTokenTracker;
-
+    private TextView scoreTextView;
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -74,6 +75,8 @@ public class ProfileFragment extends Fragment {
         image_facebook = (ImageView)view.findViewById(R.id.image_facebook);
         profile_email = (TextView)view.findViewById(R.id.profile_email);
         profile_password = (TextView)view.findViewById(R.id.profile_password);
+        scoreTextView = (TextView) view.findViewById(R.id.profile_score);
+        updateScore();
         callbackManager = CallbackManager.Factory.create();
         mProfileTracker = new ProfileTracker() {
             @Override
@@ -97,6 +100,7 @@ public class ProfileFragment extends Fragment {
 
         Profile.fetchProfileForCurrentAccessToken();
         setProfile(Profile.getCurrentProfile());
+
         return view;
     }
 
@@ -148,6 +152,10 @@ public class ProfileFragment extends Fragment {
         profile_email.setText(profile.getFirstName());
         profile_password.setText(profile.getLastName());
         Glide.with(getActivity()).load(profile.getProfilePictureUri(200,200)).into(image_facebook);
+    }
+
+    public void updateScore() {
+        scoreTextView.setText(getString(R.string.text_score, MainActivity.getProfileScore()));
     }
 
 }
