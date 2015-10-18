@@ -4,13 +4,18 @@
     android:orientation="vertical"
     tools:context="mobapply.newzgamification.fragments.ProfileFragment">
 
-    <EditText
+    <ImageView
+        android:id="@+id/image_facebook"
+        android:layout_width="100dp"
+        android:layout_height="100dp "
+        android:layout_gravity="center"/>
+    <TextView
         android:id="@+id/profile_email"
         style="@style/NewSterRegularMargins"
         android:hint="@string/hint_login"
         />
 
-    <EditText
+    <TextView
         android:id="@+id/profile_password"
         android:hint="@string/hint_password"
         style="@style/NewSterRegularMargins"/>
