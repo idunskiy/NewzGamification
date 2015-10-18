@@ -57,7 +57,6 @@ public class FavoriteArticlesFragment extends Fragment implements AbsListView.On
      * The Adapter which will be used to populate the ListView/GridView with
      * Views.
      */
-    private ListAdapter mAdapter;
     private String TAG  =  "FavoriteArticlesFragment";
 
     // TODO: Rename and change types of parameters
@@ -73,15 +72,6 @@ public class FavoriteArticlesFragment extends Fragment implements AbsListView.On
      * fragment (e.g. upon screen orientation changes).
      */
     public FavoriteArticlesFragment() {
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        // TODO: Change Adapter to display your content
-        mAdapter = new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
-                android.R.layout.simple_list_item_1, android.R.id.text1, DummyContent.ITEMS);
     }
 
     @Override
@@ -147,7 +137,4 @@ public class FavoriteArticlesFragment extends Fragment implements AbsListView.On
             ((TextView) emptyView).setText(emptyText);
         }
     }
-
-
-
 }

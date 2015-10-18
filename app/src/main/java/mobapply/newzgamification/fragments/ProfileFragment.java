@@ -7,13 +7,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import mobapply.newzgamification.R;
+import mobapply.newzgamification.activities.MainActivity;
 import mobapply.newzgamification.library.OnFragmentInteractionListener;
 
 public class ProfileFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
+    private TextView scoreTextView;
 
     /**
      * Use this factory method to create a new instance of
@@ -28,47 +31,21 @@ public class ProfileFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
-    public ProfileFragment() {
-        // Required empty public constructor
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        final View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        scoreTextView = (TextView) view.findViewById(R.id.profile_score);
+        updateScore();
+        return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri.toString());
-        }
+    public void updateScore() {
+        scoreTextView.setText(getString(R.string.text_score, MainActivity.getProfileScore()));
     }
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try {
-            mListener = (OnFragmentInteractionListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
+    private MainActivity getMyActivity() {
+        return (MainActivity) getActivity();
     }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-
 }

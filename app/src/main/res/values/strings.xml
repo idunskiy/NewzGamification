@@ -21,5 +21,6 @@
     <string name="title_favorite_news">Personal news</string>
     <string name="title_all_news">All news</string>
     <string name="title_profile">Profile</string>
-    <string name="text_score">Scrore: 152</string>
+    <string name="text_score">Score: %d</string>
+    <string name="share_news">Share news!</string>
 </resources>
